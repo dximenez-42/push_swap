@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/23 19:00:28 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:16:08 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,14 @@ t_stack	*ft_last_stack(t_stack *lst);
 t_stack	*ft_new_stack(int index, int value);
 t_stack	*ft_add_back_stack(t_stack *lst, t_stack *new);
 void	ft_print_stack(t_stack *lst, char letter);
+
+// Str utils
+size_t	count_words(char const *s, char del);
+int		ft_atoi_ps(char *s);
+
+int		check_array_contains(int num, int *array, int len);
+
+int		ft_min_stack(t_stack *lst);
+int		ft_max_stack(t_stack *lst);
 
 #endif

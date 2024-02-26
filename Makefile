@@ -8,7 +8,8 @@ SRCS = 	push_swap.c\
 		operations/push_operations.c\
 		operations/rotate_operations.c\
 		operations/rrotate_operations.c\
-		operations/list_utils.c\
+		utils/list_utils_1.c\
+		utils/list_utils_2.c\
 		libft/libft.a\
 		printf/libftprintf.a\
 

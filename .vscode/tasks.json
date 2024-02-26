@@ -8,8 +8,8 @@
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
                 "-g",
-                "libft/libft.a",
-                "operations/list_utils.c",
+                // "libft/libft.a",
+                // "utils/str_utils.c",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"

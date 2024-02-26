@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils.c                                       :+:      :+:    :+:   */
+/*   list_utils_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:24:09 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/23 19:03:03 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:25:20 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_stack	*ft_last_stack(t_stack *lst)
 	t_stack	*current;
 
 	current = lst;
-	while (current != 0)
+	while (current != NULL)
 	{
-		if (current->next == 0)
+		if (current->next == NULL)
 			return (current);
 		current = current->next;
 	}
@@ -45,10 +45,15 @@ t_stack	*ft_add_back_stack(t_stack *lst, t_stack *new)
 {
 	t_stack	*last;
 
-	last = ft_last_stack(lst);
-	last->next = new;
-	new->prev = last;
-	new->next = NULL;
+	if (lst == NULL)
+		lst = new;
+	else
+	{
+		last = ft_last_stack(lst);
+		last->next = new;
+		new->prev = last;
+		new->next = NULL;
+	}
 	return (lst);
 }
 
