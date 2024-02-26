@@ -6,26 +6,23 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:26:46 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/23 20:13:31 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:10:27 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_three(t_stack **a)
+int	ft_is_sorted(t_stack *a, int size)
 {
-	if (ft_max_stack(*a) == (*a)->value)
+	int	i;
+
+	i = 0;
+	while (i < size)
 	{
-		ft_ra(a);
-		// ft_sa(a);	// if still unsorted
+		if (a->next != NULL && a->value.num > a->next->value.num)
+			return (0);
+		a = a->next;
+		++i;
 	}
-	else if (ft_min_stack(*a) == (*a)->value)
-	{
-		ft_rra(a);
-		ft_sa(a);
-	}
-	else
-	{
-		
-	}
+	return (1);
 }

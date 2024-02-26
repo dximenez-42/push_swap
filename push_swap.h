@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/26 14:16:08 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:14:53 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 # include <stdbool.h>
 # include <limits.h>
 
+typedef struct s_int
+{
+	unsigned int	num;
+	int				sign;
+}	t_int;
+
 typedef struct s_stack_node
 {
 	int					index;
-	int					value;
-	int					cost;
-	bool				above_median;
-	bool				cheapest;
-	struct s_stack_node	*target;
+	t_int				value;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }	t_stack;
@@ -51,14 +53,13 @@ t_stack	*ft_last_stack(t_stack *lst);
 t_stack	*ft_new_stack(int index, int value);
 t_stack	*ft_add_back_stack(t_stack *lst, t_stack *new);
 void	ft_print_stack(t_stack *lst, char letter);
+int		ft_is_sorted(t_stack *a, int size);
 
 // Str utils
 size_t	count_words(char const *s, char del);
 int		ft_atoi_ps(char *s);
 
 int		check_array_contains(int num, int *array, int len);
-
-int		ft_min_stack(t_stack *lst);
-int		ft_max_stack(t_stack *lst);
+int		*dec_to_b(int n);
 
 #endif
