@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:24:09 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/26 17:12:52 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:41:02 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,7 @@ t_stack	*ft_new_stack(int index, int value)
 
 	new = malloc(sizeof(t_stack));
 	new->index = index;
-	if (value < 0)
-	{
-		new->value.num = -value;
-		new->value.sign = -1;
-	}
-	else
-	{
-		new->value.num = value;
-		new->value.sign = 1;
-	}
+	new->val = value;
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
@@ -75,8 +66,7 @@ void	ft_print_stack(t_stack *lst, char letter)
 	{
 		ft_printf("ELEMENT NUMBER	%d (%p)\n", index, current);
 		ft_printf("index:			%d\n", current->index);
-		ft_printf("value:			%d\n",
-			current->value.num*current->value.sign);
+		ft_printf("value:			%d\n", current->val);
 		ft_printf("next:			%p\n", current->next);
 		ft_printf("prev:			%p\n", current->prev);
 		ft_printf("\n");

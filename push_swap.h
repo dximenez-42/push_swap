@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/26 17:14:53 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:41:29 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,10 @@
 # include <stdbool.h>
 # include <limits.h>
 
-typedef struct s_int
-{
-	unsigned int	num;
-	int				sign;
-}	t_int;
-
 typedef struct s_stack_node
 {
 	int					index;
-	t_int				value;
+	int					val;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }	t_stack;
@@ -48,6 +42,10 @@ void	ft_rra(t_stack **a);
 void	ft_rrb(t_stack **b);
 void	ft_rrr(t_stack **a, t_stack **b);
 
+// Sort
+void	sort_three(t_stack **s);
+
+
 // List utils
 t_stack	*ft_last_stack(t_stack *lst);
 t_stack	*ft_new_stack(int index, int value);
@@ -60,6 +58,7 @@ size_t	count_words(char const *s, char del);
 int		ft_atoi_ps(char *s);
 
 int		check_array_contains(int num, int *array, int len);
-int		*dec_to_b(int n);
+
+void	show_error(void);
 
 #endif

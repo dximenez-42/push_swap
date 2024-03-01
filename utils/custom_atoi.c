@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 21:34:54 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/26 14:14:48 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/02/27 13:41:42 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ int	ft_atoi_ps(char *s)
 			i++;
 		}
 		else
-		{
-			ft_printf("Error");
-			exit(0);
-		}
+			show_error();
 	}
+	if ((s[i] == '\0' && value == 0)
+		|| (symbol * value) > 2147483647 || (symbol * value) < -2147483648)
+		show_error();
 	return (symbol * value);
 }

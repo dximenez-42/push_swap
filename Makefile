@@ -14,6 +14,7 @@ SRCS = 	push_swap.c\
 		utils/custom_atoi.c\
 		utils/int_utils.c\
 		utils/str_utils.c\
+		utils/errors.c\
 		libft/libft.a\
 		printf/libftprintf.a\
 
