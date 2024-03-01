@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/27 13:41:29 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/01 17:36:02 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_rrr(t_stack **a, t_stack **b);
 
 // Sort
 void	sort_three(t_stack **s);
+void	sort_five(t_stack **s, t_stack **b);
 
 
 // List utils
