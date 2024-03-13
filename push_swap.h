@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/01 17:36:02 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/13 14:18:06 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ void	ft_rrb(t_stack **b);
 void	ft_rrr(t_stack **a, t_stack **b);
 
 // Sort
+void	sort_array(int **array, size_t size);
+void	sort_swap_array(t_stack **lst, int *array, size_t size);
+void	find_swap(t_stack **lst, int num, int swap);
+
 void	sort_three(t_stack **s);
 void	sort_five(t_stack **s, t_stack **b);
 
@@ -58,7 +62,7 @@ int		ft_is_sorted(t_stack *a, int size);
 size_t	count_words(char const *s, char del);
 int		ft_atoi_ps(char *s);
 
-int		check_array_contains(int num, int *array, int len);
+int		check_array_contains(int num, int **array, int len);
 
 void	show_error(void);
 
