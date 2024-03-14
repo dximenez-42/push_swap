@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 14:16:50 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:29:21 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ size_t	count_words(char const *s, char del);
 int		ft_atoi_ps(char *s);
 
 // Int utils
-int		check_array_contains(int num, int **array, int len);
+int		array_contains(int num, int **array, int len);
 
 // Errors
 void	show_error(void);

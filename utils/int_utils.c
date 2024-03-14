@@ -6,13 +6,13 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:11 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 13:58:31 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:29:21 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_array_contains(int num, int **array, int index)
+int	array_contains(int num, int **array, int index)
 {
 	int	i;
 
@@ -20,7 +20,7 @@ int	check_array_contains(int num, int **array, int index)
 	while (i <= index)
 	{
 		if ((*array)[i] == num)
-			show_error();
+			return (1);
 		++i;
 	}
 	(*array)[index] = num;

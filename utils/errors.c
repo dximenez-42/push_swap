@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 12:39:43 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 13:58:33 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:46:11 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	show_error(void)
 {
-	ft_printf("Error");
-	exit(0);
+	write(2, "Error\n", 7);
+	exit(1);
 }

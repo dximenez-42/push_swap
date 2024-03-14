@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:24:09 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 13:58:29 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:32:50 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ t_stack	*ft_new_stack(int value)
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
+	if (new == NULL)
+		return (show_error(), NULL);
 	new->val = value;
 	new->prev = NULL;
 	new->next = NULL;
