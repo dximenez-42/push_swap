@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:24:09 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/27 13:41:02 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:58:29 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ t_stack	*ft_last_stack(t_stack *lst)
 	return (0);
 }
 
-t_stack	*ft_new_stack(int index, int value)
+t_stack	*ft_new_stack(int value)
 {
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
-	new->index = index;
 	new->val = value;
 	new->prev = NULL;
 	new->next = NULL;
@@ -65,7 +64,6 @@ void	ft_print_stack(t_stack *lst, char letter)
 	while (current != 0)
 	{
 		ft_printf("ELEMENT NUMBER	%d (%p)\n", index, current);
-		ft_printf("index:			%d\n", current->index);
 		ft_printf("value:			%d\n", current->val);
 		ft_printf("next:			%p\n", current->next);
 		ft_printf("prev:			%p\n", current->prev);
@@ -73,4 +71,19 @@ void	ft_print_stack(t_stack *lst, char letter)
 		current = current->next;
 		++index;
 	}
+}
+
+int	ft_lst_size(t_stack **lst)
+{
+	t_stack	*current;
+	size_t	i;
+
+	i = 0;
+	current = *lst;
+	while (current != 0)
+	{
+		current = current->next;
+		++i;
+	}
+	return (i);
 }

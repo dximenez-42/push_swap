@@ -5,16 +5,19 @@ CFLAGS = -Werror -Wall -Wextra
 
 SRCS = 	push_swap.c\
 		sorting.c\
-		operations/swap_operations.c\
-		operations/push_operations.c\
-		operations/rotate_operations.c\
-		operations/rrotate_operations.c\
+		\
+		operations/swap.c\
+		operations/push.c\
+		operations/rotate.c\
+		operations/rrotate.c\
+		\
 		utils/list_utils_1.c\
 		utils/list_utils_2.c\
 		utils/custom_atoi.c\
 		utils/int_utils.c\
-		utils/str_utils.c\
 		utils/errors.c\
+		utils/array.c\
+		\
 		libft/libft.a\
 		printf/libftprintf.a\
 

@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:18:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/02/23 18:57:41 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:25:33 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ static void	push(t_stack **dst, t_stack **src)
 		return ;
 	swap = (*src);
 	(*src) = (*src)->next;
-	(*src)->prev = NULL;
+	if (*src)
+		(*src)->prev = NULL;
 	if (*dst != NULL)
 		(*dst)->prev = swap;
 	swap->next = (*dst);
