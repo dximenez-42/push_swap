@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 14:02:02 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/14 14:16:50 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ void	sort_array(int **array, size_t size);
 void	sort_swap_array(t_stack **lst, int *array, size_t size);
 void	find_swap(t_stack **lst, int num, int swap);
 
-
 // Sort
 void	small_sort(t_stack **a, t_stack **b);
 void	big_sort(t_stack **a, t_stack **b);
-
 
 // List utils
 t_stack	*ft_last_stack(t_stack *lst);
