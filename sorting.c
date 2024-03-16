@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:26:46 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 14:16:40 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:13:42 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static void	sort_three(t_stack **s)
 {
-	if ((*s)->val > (*s)->next->val && (*s)->val < (*s)->next->next->val)
-		ft_sa(s);
-	if ((*s)->val < (*s)->next->val && (*s)->val > (*s)->next->next->val)
-		ft_rra(s);
 	if ((*s)->val > (*s)->next->val && (*s)->val > (*s)->next->next->val)
 		ft_ra(s);
-	if (!ft_is_sorted(*s, 3))
-		return (sort_three(s));
+	else if ((*s)->val > (*s)->next->val)
+		ft_sa(s);
+	else if ((*s)->val < (*s)->next->val)
+		ft_rra(s);
+	if (!ft_is_sorted(*s))
+		sort_three(s);
 }
 
 static void	sort_five(t_stack **a, t_stack **b)
@@ -39,12 +39,15 @@ static void	sort_five(t_stack **a, t_stack **b)
 
 void	small_sort(t_stack **a, t_stack **b)
 {
-	if (ft_lst_size(a) < 3)
+	int	size;
+
+	size = ft_lst_size(a);
+	if (size == 2)
 	{
 		if ((*a)->val > (*a)->next->val)
 			ft_sa(a);
 	}
-	else if (ft_lst_size(a) == 3)
+	else if (size == 3)
 		sort_three(a);
 	else
 		sort_five(a, b);
