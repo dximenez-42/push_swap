@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:46:02 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/16 18:50:24 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/17 21:34:37 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ static t_response	check_input(char *str, int **array, int index)
 	t_response	res;
 
 	res = ft_atoi_ps(str);
-	// printf("check_input val: %d, status: %d\n", res.num, res.status);
+	printf("check_input val: %d, status: %d\n", res.num, res.status);
 	if (array_contains(res.num, array, index) == 0 && res.status == 1)
 	{
 		// if (res.num < -214748368 || res.num > 214748367)
 		// 	return (res);
-		// res.status = 1;
-		// printf("check_input if\n");
+		res.status = 1;
+		printf("check_input if\n");
 		return (res);
 	}
 	else
 	{
-		// printf("check_input else\n");
+		printf("check_input else\n");
 		res.status = 0;
 		return (res);
 	}
@@ -75,15 +75,18 @@ int	main(int argc, char *argv[])
 	a = ft_initialize_stack(&argc, argv, &array);
 	b = NULL;
 	if (a == NULL)
-		printf("error a\n");
+		return (0);
 	if (ft_is_sorted(a) && a != NULL)
 		return (0);
 	sort_swap_array(&a, array, argc - 1);
-	printf("%d\n", argc - 1);
-	if (argc - 1 <= 5)
-		small_sort(&a, &b);
-	else
-		big_sort(&a, &b);
+	// printf("%d\n", argc - 1);
+	// if (argc - 1 <= 5)
+	// 	printf("<= 5: %d\n", argc - 1);
+	// 	// small_sort(&a, &b);
+	// else
+	// 	printf("> 5: %d\n", argc - 1);
+	(void)b;
+		// big_sort(&a, &b);
 	// printf("\n\nis sorted?: %d\n", ft_is_sorted(a));
 	ft_print_stack(a, 'A');
 	// ft_print_stack(b, 'B');
