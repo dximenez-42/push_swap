@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:26:46 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 19:13:42 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/19 15:50:06 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,29 @@ static void	sort_three(t_stack **s)
 
 static void	sort_five(t_stack **a, t_stack **b)
 {
+	int	pos;
+	int	i;
+
+	i = 0;
 	while (ft_lst_size(a) > 3)
-		ft_pb(a, b);
+	{
+		pos = ft_number_index(*a, i);
+		if (pos == 0)
+		{
+			ft_pb(a, b);
+			++i;
+		}
+		else if (pos <= ft_lst_size(a) / 2)
+			ft_ra(a);
+		else
+			ft_rra(a);
+	}
 	sort_three(a);
 	while (ft_lst_size(b) > 0)
 	{
+		if ((*b)->next != NULL && (*b)->val < (*b)->next->val)
+			ft_sb(b);
 		ft_pa(a, b);
-		if ((*a)->val > (*a)->next->val)
-			ft_ra(a);
 	}
 }
 

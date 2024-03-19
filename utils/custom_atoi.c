@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 21:34:54 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/17 21:35:22 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:13:33 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_response	ft_atoi_ps(char *s)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 			res.num = (res.num * 10) + (s[i] - '0');
-		else if (ft_strlen(s) == 1)
+		else
 			res.status = 0;
 		i++;
 	}

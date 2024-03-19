@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 19:02:26 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:35:30 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ t_stack		*ft_add_back_stack(t_stack *lst, t_stack *new);
 int			ft_lst_size(t_stack **lst);
 void		ft_print_stack(t_stack *lst, char letter);
 int			ft_is_sorted(t_stack *a);
+int			ft_number_index(t_stack *a, int number);
 
 // Atoi
 size_t		count_words(char const *s, char del);
@@ -73,6 +74,6 @@ t_response	ft_atoi_ps(char *s);
 int			array_contains(int num, int **array, int len);
 
 // Errors
-void		show_error(char *str);
+void		show_error(void);
 
 #endif
