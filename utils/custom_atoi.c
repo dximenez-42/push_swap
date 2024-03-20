@@ -6,17 +6,17 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 21:34:54 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/18 20:13:33 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:46:50 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	get_symbol(char *s, size_t *i)
+static int	get_symbol(char c, size_t *i)
 {
-	if (s[*i] == '-' || s[*i] == '+')
+	if (c == '-' || c == '+')
 	{
-		if (s[*i] == '-')
+		if (c == '-')
 		{
 			++(*i);
 			return (-1);
@@ -37,7 +37,7 @@ t_response	ft_atoi_ps(char *s)
 	symbol = 1;
 	if (ft_strlen(s) == 1 && (s[0] < '0' || s[0] > '9'))
 		res.status = 0;
-	symbol = get_symbol(s, &i);
+	symbol = get_symbol(s[0], &i);
 	while (s[i] != '\0')
 	{
 		if (s[i] >= '0' && s[i] <= '9')
@@ -48,6 +48,6 @@ t_response	ft_atoi_ps(char *s)
 	}
 	if ((symbol * res.num) > 2147483647 || (symbol * res.num) < -2147483648)
 		res.status = 0;
-	// printf("original: %s, val: %d, status: %d\n", s, res.num, res.status);
+	res.num = symbol * res.num;
 	return (res);
 }
