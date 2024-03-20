@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 12:45:11 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/18 19:53:52 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:48:35 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,10 @@ int	array_contains(int num, int **array, int index)
 	i = 0;
 	while (i <= index)
 	{
-		// printf("element %d is %d\n", i, (*array)[i]);
-		// if ((*array)[i] == num && (i != 0 && num == 0))
 		if ((*array)[i] == num && (num == 0 && i < index))
-		{
-			// printf("already found: %d in index: %d\n", num, i);
 			return (1);
-		}
 		++i;
 	}
-	// printf("not found: %d\n", num);
 	(*array)[index] = num;
 	return (0);
 }

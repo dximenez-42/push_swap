@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:26:46 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/19 15:50:06 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/20 15:59:26 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,7 @@ static void	sort_five(t_stack **a, t_stack **b)
 	}
 	sort_three(a);
 	while (ft_lst_size(b) > 0)
-	{
-		if ((*b)->next != NULL && (*b)->val < (*b)->next->val)
-			ft_sb(b);
 		ft_pa(a, b);
-	}
 }
 
 void	small_sort(t_stack **a, t_stack **b)
