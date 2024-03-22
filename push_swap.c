@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:46:02 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/20 16:46:32 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/22 15:52:36 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,10 @@ int	main(int argc, char *argv[])
 	if (ft_is_sorted(a) && a != NULL)
 		return (0);
 	sort_swap_array(&a, array, argc - 1);
-	if (argc - 1 <= 5)
-		small_sort(&a, &b);
-	else
-		big_sort(&a, &b);
+	// if (argc - 1 <= 5)
+	// 	small_sort(&a, &b);
+	// else
+	// 	big_sort(&a, &b);
 	// printf("\n\nis sorted?: %d\n", ft_is_sorted(a));
-	// ft_print_stack(a, 'A');
-	// (void)b;
-	// ft_print_stack(b, 'B');
+	ft_print_stacks(a, b);
 }
