@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 20:05:25 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/22 15:52:33 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/22 16:44:40 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,18 @@ int	ft_is_sorted(t_stack *a)
 	return (1);
 }
 
-int	ft_number_index(t_stack *a, int number)
+int	ft_number_index(t_stack **a, int number)
 {
-	int	i;
-	int	size;
+	t_stack	*current;
+	int		i;
 
+	current = *a;
 	i = 0;
-	size = ft_lst_size(&a);
-	while (i < size)
+	while (current != NULL)
 	{
-		if (a->val == number)
+		if (current->val == number)
 			return (i);
-		if (a->next != NULL)
-			a = a->next;
+		current = current->next;
 		++i;
 	}
 	return (-1);
