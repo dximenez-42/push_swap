@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:26:46 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 19:13:42 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 21:38:16 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,26 @@ static void	sort_three(t_stack **s)
 
 static void	sort_five(t_stack **a, t_stack **b)
 {
+	int	pos;
+	int	i;
+
+	i = 0;
 	while (ft_lst_size(a) > 3)
-		ft_pb(a, b);
+	{
+		pos = ft_number_index(a, i);
+		if (pos == 0)
+		{
+			ft_pb(a, b);
+			++i;
+		}
+		else if (pos <= ft_lst_size(a) / 2)
+			ft_ra(a);
+		else
+			ft_rra(a);
+	}
 	sort_three(a);
 	while (ft_lst_size(b) > 0)
-	{
 		ft_pa(a, b);
-		if ((*a)->val > (*a)->next->val)
-			ft_ra(a);
-	}
 }
 
 void	small_sort(t_stack **a, t_stack **b)
@@ -53,21 +64,27 @@ void	small_sort(t_stack **a, t_stack **b)
 		sort_five(a, b);
 }
 
-void	big_sort(t_stack **a, t_stack **b)
+static int	calculate_bits(int size)
 {
 	int	max_bits;
+
+	max_bits = 0;
+	while ((size >> max_bits) != 0)
+		++max_bits;
+	return (max_bits);
+}
+
+void	big_sort(t_stack **a, t_stack **b)
+{
 	int	size;
 	int	i;
 	int	j;
 	int	val;
 
-	max_bits = 0;
-	size = ft_lst_size(a) - 1;
+	size = ft_lst_size(a);
 	i = 0;
 	j = 0;
-	while ((size >> max_bits) != 0)
-		++max_bits;
-	while (i < max_bits)
+	while (i < calculate_bits(size))
 	{
 		while (j < size)
 		{

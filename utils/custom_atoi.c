@@ -6,26 +6,17 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 21:34:54 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 18:33:02 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/20 16:46:50 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	is_space(char c)
+static int	get_symbol(char c, size_t *i)
 {
-	if (c == ' ' || c == '\t' || c == '\n'
-		|| c == '\v' || c == '\f' || c == '\r')
-		return (1);
-	else
-		return (0);
-}
-
-static int	get_symbol(char *s, size_t *i)
-{
-	if (s[*i] == '-' || s[*i] == '+')
+	if (c == '-' || c == '+')
 	{
-		if (s[*i] == '-')
+		if (c == '-')
 		{
 			++(*i);
 			return (-1);
@@ -44,21 +35,19 @@ t_response	ft_atoi_ps(char *s)
 	res.num = 0;
 	res.status = 1;
 	symbol = 1;
-	while (is_space(s[i]))
-		i++;
-	symbol = get_symbol(s, &i);
+	if (ft_strlen(s) == 1 && (s[0] < '0' || s[0] > '9'))
+		res.status = 0;
+	symbol = get_symbol(s[0], &i);
 	while (s[i] != '\0')
 	{
 		if (s[i] >= '0' && s[i] <= '9')
-		{
 			res.num = (res.num * 10) + (s[i] - '0');
-			i++;
-		}
 		else
 			res.status = 0;
+		i++;
 	}
 	if ((symbol * res.num) > 2147483647 || (symbol * res.num) < -2147483648)
 		res.status = 0;
-	// printf("atoi val: %d, status: %d\n", res.num, res.status);
+	res.num = symbol * res.num;
 	return (res);
 }

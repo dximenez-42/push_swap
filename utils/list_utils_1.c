@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:24:09 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 18:04:31 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 20:25:12 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ t_stack	*ft_new_stack(int value)
 
 	new = malloc(sizeof(t_stack));
 	if (new == NULL)
-		return (show_error("new stack malloc\n"), NULL);
+		return (show_error(), NULL);
 	new->val = value;
+	new->trash = 0;
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
@@ -53,27 +54,6 @@ t_stack	*ft_add_back_stack(t_stack *lst, t_stack *new)
 		new->next = NULL;
 	}
 	return (lst);
-}
-
-void	ft_print_stack(t_stack *lst, char letter)
-{
-	t_stack	*current;
-	int		index;
-
-	current = lst;
-	index = 1;
-	ft_printf("\n#########  LIST %c  #########\n", letter);
-	while (current != 0)
-	{
-		ft_printf("ELEMENT NUMBER	%d (%p)\n", index, current);
-		ft_printf("value:			%d\n", current->val);
-		ft_printf("old:			%d\n", current->old);
-		ft_printf("next:			%p\n", current->next);
-		ft_printf("prev:			%p\n", current->prev);
-		ft_printf("\n");
-		current = current->next;
-		++index;
-	}
 }
 
 int	ft_lst_size(t_stack **lst)
