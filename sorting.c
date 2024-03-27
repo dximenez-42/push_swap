@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:26:46 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/27 21:15:22 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 21:38:16 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,35 +64,40 @@ void	small_sort(t_stack **a, t_stack **b)
 		sort_five(a, b);
 }
 
-void	big_sort(t_stack **a, t_stack **b, int max)
+static int	calculate_bits(int size)
 {
-	// printf("big_sort\n");
-	clear_trash(*a, *b);
-	if (ft_lst_size(b) == 0)
+	int	max_bits;
+
+	max_bits = 0;
+	while ((size >> max_bits) != 0)
+		++max_bits;
+	return (max_bits);
+}
+
+void	big_sort(t_stack **a, t_stack **b)
+{
+	int	size;
+	int	i;
+	int	j;
+	int	val;
+
+	size = ft_lst_size(a);
+	i = 0;
+	j = 0;
+	while (i < calculate_bits(size))
 	{
-		// printf("start one\n");
-		step_one(a, b, max);
-		// ft_print_stacks(*a, *b);
-	}
-	if (ft_lst_size(a) != 0)
-	{
-		// printf("start join\n");
-		join_stacks(a, b, 'b');
-	}
-	// printf("start three\n");
-	// ft_print_stacks(*a, *b);
-	step_three(a, b);
-	// printf("start four\n");
-	step_four(a, b, max);
-	// printf("start merge\n");
-	merge(a, b);
-	if (ft_is_sorted(*b) && (*a) == NULL)
-		while (ft_lst_size(b) > 0)
+		while (j < size)
 		{
-			if (ft_lst_size(b) > 1)
-				ft_rrb(b);
-			ft_pa(a, b);
+			val = (*a)->val;
+			if (((val >> i) & 1) == 1)
+				ft_ra(a);
+			else
+				ft_pb(a, b);
+			++j;
 		}
-	else
-		big_sort(a, b, max);
+		while (ft_lst_size(b) > 0)
+			ft_pa(a, b);
+		++i;
+		j = 0;
+	}
 }

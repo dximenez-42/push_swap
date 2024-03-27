@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/27 20:47:22 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 21:28:27 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,7 @@ void		find_swap(t_stack **lst, int num, int swap);
 
 // Sort
 void		small_sort(t_stack **a, t_stack **b);
-void		big_sort(t_stack **a, t_stack **b, int max);
-
-void		clear_trash(t_stack *stack_a, t_stack *stack_b);
-void		step_one(t_stack **a, t_stack **b, int max);
-void		join_stacks(t_stack **a, t_stack **b, char dest);
-void		step_three(t_stack **a, t_stack **b);
-void		step_four(t_stack **a, t_stack **b, int max);
-void		merge(t_stack **a, t_stack **b);
+void		big_sort(t_stack **a, t_stack **b);
 
 // List utils
 t_stack		*ft_last_stack(t_stack *lst);

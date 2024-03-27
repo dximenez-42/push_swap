@@ -18,8 +18,6 @@ SRCS = 	push_swap.c\
 		utils/errors.c\
 		utils/array.c\
 		\
-		sorting/sorting_1.c\
-		\
 		libft/libft.a\
 		printf/libftprintf.a\
 

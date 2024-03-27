@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 20:05:25 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/27 20:32:17 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 21:28:52 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_number_index(t_stack **a, int number)
 	return (-1);
 }
 
-static void print_lists(t_stack *a, t_stack *b)
+static void	print_lists(t_stack *a, t_stack *b)
 {
 	if (a != NULL)
 	{

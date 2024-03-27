@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:46:02 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/27 21:18:18 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 21:29:00 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,5 @@ int	main(int argc, char *argv[])
 	if (argc - 1 <= 5)
 		small_sort(&a, &b);
 	else
-		big_sort(&a, &b, ft_lst_size(&a) - 1);
-	// printf("\n\nis sorted?: %d\n", ft_is_sorted(a));
-	// ft_print_stacks(a, b);
+		big_sort(&a, &b);
 }
