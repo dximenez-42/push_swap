@@ -1,5 +1,5 @@
-1 & 2.
-while b(0) != size-1 && b(last) != 0
+1. (step_one)
+while b(0) != 0 && b(last) != size-1
     if a(0) < b(0)
         pushb
     else if a(0) > b(last)
@@ -8,11 +8,11 @@ while b(0) != size-1 && b(last) != 0
     else
         rotatea
 
-3.
+2. (join_stacks)
 while a !empty
     pushb
 
-4. (2)
+3. (step_three)
 while b(0) != 0
     if b(0) < a(0)
         pusha
@@ -22,14 +22,14 @@ while b(0) != 0
     else
         rotateb
 
-5.
+4. (step_four)
 while b(last) != 0
     rrotateb
 
 while b !empty
     pusha
 
-6. (merge)
+5. (merge)
 while b(0) != 0
     if a(0) > a(last)
         pushb

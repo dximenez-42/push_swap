@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 19:24:09 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/22 15:35:30 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 20:25:12 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_stack	*ft_new_stack(int value)
 	if (new == NULL)
 		return (show_error(), NULL);
 	new->val = value;
+	new->trash = 0;
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);

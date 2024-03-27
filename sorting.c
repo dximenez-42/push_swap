@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/23 19:26:46 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/22 16:46:09 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 21:15:22 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,37 +64,35 @@ void	small_sort(t_stack **a, t_stack **b)
 		sort_five(a, b);
 }
 
-void	big_sort(t_stack **a, t_stack **b)
+void	big_sort(t_stack **a, t_stack **b, int max)
 {
-	int	pos;
-	int	i;
-
-	i = 0;
-	while (ft_lst_size(a) > 3)
+	// printf("big_sort\n");
+	clear_trash(*a, *b);
+	if (ft_lst_size(b) == 0)
 	{
-		pos = ft_number_index(a, i);
-		if (pos == -1)
-		{
-			printf("#################ERROR##############      %d\n", i);
-			i++;
-			continue ;
-		}
-		// if (i >= 87)
-		// 	ft_print_stacks(*a, *b);
-		if ((*a)->val == i || ((*a)->val == i + 1 && ft_lst_size(a) > 4))
-		{
-			ft_pb(a, b);
-			if ((*b)->next != NULL && (*b)->val < (*b)->next->val)
-				ft_sb(b);
-			if ((*a)->val == i)
-				i++;
-		}
-		else if (pos <= ft_lst_size(a) / 2)
-			ft_ra(a);
-		else
-			ft_rra(a);
+		// printf("start one\n");
+		step_one(a, b, max);
+		// ft_print_stacks(*a, *b);
 	}
-	sort_three(a);
-	while (ft_lst_size(b) > 0)
-		ft_pa(a, b);
+	if (ft_lst_size(a) != 0)
+	{
+		// printf("start join\n");
+		join_stacks(a, b, 'b');
+	}
+	// printf("start three\n");
+	// ft_print_stacks(*a, *b);
+	step_three(a, b);
+	// printf("start four\n");
+	step_four(a, b, max);
+	// printf("start merge\n");
+	merge(a, b);
+	if (ft_is_sorted(*b) && (*a) == NULL)
+		while (ft_lst_size(b) > 0)
+		{
+			if (ft_lst_size(b) > 1)
+				ft_rrb(b);
+			ft_pa(a, b);
+		}
+	else
+		big_sort(a, b, max);
 }
