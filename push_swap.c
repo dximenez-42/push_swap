@@ -6,11 +6,23 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:46:02 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/27 21:29:00 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:06:35 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	free_all(t_stack **a)
+{
+	t_stack	*next;
+
+	while ((*a) != NULL)
+	{
+		next = (*a)->next;
+		free((*a));
+		(*a) = next;
+	}
+}
 
 static t_response	check_input(char *str, int **array, int index)
 {
@@ -43,7 +55,7 @@ static t_stack	*ft_initialize_stack(int *argc, char *argv[], int **array)
 	}
 	else
 		numbers = argv + 1;
-	(*array) = malloc(((*argc) - 1) * sizeof(int));
+	(*array) = ft_calloc(((*argc) - 1), sizeof(int));
 	if ((*array) == NULL)
 		return (NULL);
 	lst = NULL;
@@ -52,7 +64,7 @@ static t_stack	*ft_initialize_stack(int *argc, char *argv[], int **array)
 	{
 		value = check_input(numbers[i], array, i);
 		if (value.status == 0)
-			return (NULL);
+			return (free_all(&lst), NULL);
 		lst = ft_add_back_stack(lst, ft_new_stack(value.num));
 	}
 	return (lst);
@@ -71,6 +83,7 @@ int	main(int argc, char *argv[])
 	if (ft_is_sorted(a) && a != NULL)
 		return (0);
 	sort_swap_array(&a, array, argc - 1);
+	free(array);
 	if (argc - 1 <= 5)
 		small_sort(&a, &b);
 	else
