@@ -1,0 +1,38 @@
+1 & 2.
+while b(0) != size-1 && b(last) != 0
+    if a(0) < b(0)
+        pushb
+    else if a(0) > b(last)
+        pushb
+        rotateb
+    else
+        rotatea
+
+3.
+while a !empty
+    pushb
+
+4. (2)
+while b(0) != 0
+    if b(0) < a(0)
+        pusha
+    else if b(0) > a(last)
+        pusha
+        rotatea
+    else
+        rotateb
+
+5.
+while b(last) != 0
+    rrotateb
+
+while b !empty
+    pusha
+
+6. (merge)
+while b(0) != 0
+    if a(0) > a(last)
+        pushb
+    else
+        rrotatea
+        pushb
