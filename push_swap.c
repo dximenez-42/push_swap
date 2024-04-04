@@ -79,13 +79,14 @@ int	main(int argc, char *argv[])
 	a = ft_initialize_stack(&argc, argv, &array);
 	b = NULL;
 	if (a == NULL)
-		return (show_error(), 0);
+		return (show_error(), free(array), 0);
 	if (ft_is_sorted(a) && a != NULL)
-		return (0);
+		return (free(array), free_all(&a), 0);
 	sort_swap_array(&a, array, argc - 1);
-	free(array);
 	if (argc - 1 <= 5)
 		small_sort(&a, &b);
 	else
 		big_sort(&a, &b);
+	free(array);
+	free_all(&a);
 }

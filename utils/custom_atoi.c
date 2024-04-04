@@ -46,8 +46,6 @@ t_response	ft_atoi_ps(char *s)
 			res.status = 0;
 		i++;
 	}
-	if ((symbol * res.num) > 2147483647 || (symbol * res.num) < -2147483648)
-		res.status = 0;
 	res.num = symbol * res.num;
 	return (res);
 }

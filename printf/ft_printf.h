@@ -13,7 +13,7 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-// # include "../libft/libft.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
@@ -26,7 +26,6 @@ size_t	ft_print_num(va_list *args, char c);
 size_t	ft_print_hex(va_list *args, char c);
 size_t	ft_print_pointer(va_list *args);
 
-size_t	ft_strlen(const char *s);
 size_t	ft_putnbr_dec(int nb);
 size_t	ft_putnbr_uns(unsigned int nb);
 char	*ft_reverse(char *str);
