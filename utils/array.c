@@ -67,3 +67,16 @@ void	find_swap(t_stack **lst, int num, int swap)
 		stack = stack->next;
 	}
 }
+
+void	free_array_words(char	**mem, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+	{
+		free((void *)mem[i]);
+		++i;
+	}
+	free(mem);
+}

@@ -53,6 +53,7 @@ void		ft_rrr(t_stack **a, t_stack **b);
 void		sort_array(int **array, size_t size);
 void		sort_swap_array(t_stack **lst, int *array, size_t size);
 void		find_swap(t_stack **lst, int num, int swap);
+void		free_array_words(char	**mem, size_t size);
 
 // Sort
 void		small_sort(t_stack **a, t_stack **b);

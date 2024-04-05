@@ -67,6 +67,7 @@ static t_stack	*ft_initialize_stack(int *argc, char *argv[], int **array)
 			return (free_all(&lst), NULL);
 		lst = ft_add_back_stack(lst, ft_new_stack(value.num));
 	}
+	free_array_words(numbers, *argc);
 	return (lst);
 }
 

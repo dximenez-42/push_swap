@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Werror -Wall -Wextra -fsanitize=address
+CFLAGS = -Werror -Wall -Wextra -g -fsanitize=address
 
 SRCS = 	push_swap.c\
 		sorting.c\
