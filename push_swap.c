@@ -6,23 +6,11 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:46:02 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/27 23:06:35 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/04/05 17:47:11 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	free_all(t_stack **a)
-{
-	t_stack	*next;
-
-	while ((*a) != NULL)
-	{
-		next = (*a)->next;
-		free((*a));
-		(*a) = next;
-	}
-}
 
 static t_response	check_input(char *str, int **array, int index)
 {
@@ -41,34 +29,44 @@ static t_response	check_input(char *str, int **array, int index)
 	}
 }
 
-static t_stack	*ft_initialize_stack(int *argc, char *argv[], int **array)
+static t_stack	*ft_initialize_stack(int argc, char **numbers, int **array)
 {
 	t_stack		*lst;
-	char		**numbers;
 	int			i;
 	t_response	value;
 
-	if (*argc == 2)
-	{
-		numbers = ft_split(argv[1], ' ');
-		*argc = count_words(argv[1], ' ') + 1;
-	}
-	else
-		numbers = argv + 1;
-	(*array) = ft_calloc(((*argc) - 1), sizeof(int));
+	(*array) = ft_calloc((argc - 1), sizeof(int));
 	if ((*array) == NULL)
 		return (NULL);
 	lst = NULL;
 	i = -1;
-	while ((++i + 1) < *argc)
+	while ((++i + 1) < argc)
 	{
 		value = check_input(numbers[i], array, i);
 		if (value.status == 0)
-			return (free_all(&lst), NULL);
-		lst = ft_add_back_stack(lst, ft_new_stack(value.num));
+			return (free_stack(&lst), NULL);
+		lst = ft_add_back_stack(lst, ft_new_stack((int) value.num));
 	}
-	free_array_words(numbers, *argc);
 	return (lst);
+}
+
+static char	**get_params(int *argc, char *argv[], int *check)
+{
+	char	**numbers;
+
+	argv = argv + 1;
+	if (*argc == 2)
+	{
+		numbers = ft_split(argv[0], ' ');
+		*argc = count_words(argv[0], ' ') + 1;
+		*check = 1;
+	}
+	else
+	{
+		numbers = argv;
+		*check = 0;
+	}
+	return (numbers);
 }
 
 int	main(int argc, char *argv[])
@@ -76,18 +74,22 @@ int	main(int argc, char *argv[])
 	t_stack	*a;
 	t_stack	*b;
 	int		*array;
+	int		check;
+	char	**nums;
 
-	a = ft_initialize_stack(&argc, argv, &array);
+	nums = get_params(&argc, argv, &check);
+	a = ft_initialize_stack(argc, nums, &array);
 	b = NULL;
 	if (a == NULL)
-		return (show_error(), free(array), 0);
+		return (show_error(), free(array), free_check(nums, argc, check), 0);
 	if (ft_is_sorted(a) && a != NULL)
-		return (free(array), free_all(&a), 0);
+		return (free(array), free_stack(&a), free_check(nums, argc, check), 0);
 	sort_swap_array(&a, array, argc - 1);
 	if (argc - 1 <= 5)
 		small_sort(&a, &b);
 	else
 		big_sort(&a, &b);
+	free_check(nums, argc, check);
 	free(array);
-	free_all(&a);
+	free_stack(&a);
 }

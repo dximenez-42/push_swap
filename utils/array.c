@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 13:57:02 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/14 17:41:01 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:26:47 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,4 @@ void	find_swap(t_stack **lst, int num, int swap)
 		}
 		stack = stack->next;
 	}
-}
-
-void	free_array_words(char	**mem, size_t size)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < size)
-	{
-		free((void *)mem[i]);
-		++i;
-	}
-	free(mem);
 }

@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 21:34:54 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/20 16:46:50 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/04/05 17:36:17 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_response	ft_atoi_ps(char *s)
 			res.status = 0;
 		i++;
 	}
+	if (symbol * res.num > 2147483647 || symbol * res.num < -2147483648)
+		res.status = 0;
 	res.num = symbol * res.num;
 	return (res);
 }

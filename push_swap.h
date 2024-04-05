@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:50:16 by dximenez          #+#    #+#             */
-/*   Updated: 2024/03/27 21:28:27 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/04/05 17:36:03 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_stack_node
 
 typedef struct s_response
 {
-	int		num;
+	long	num;
 	int		status;
 }	t_response;
 
@@ -53,7 +53,6 @@ void		ft_rrr(t_stack **a, t_stack **b);
 void		sort_array(int **array, size_t size);
 void		sort_swap_array(t_stack **lst, int *array, size_t size);
 void		find_swap(t_stack **lst, int num, int swap);
-void		free_array_words(char	**mem, size_t size);
 
 // Sort
 void		small_sort(t_stack **a, t_stack **b);
@@ -77,5 +76,10 @@ int			array_contains(int num, int **array, int len);
 
 // Errors
 void		show_error(void);
+
+// Frees
+void		free_array_words(char	**mem, size_t size);
+void		free_stack(t_stack **a);
+void		free_check(char **mem, size_t size, int check);
 
 #endif

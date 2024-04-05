@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Werror -Wall -Wextra -g -fsanitize=address
+CFLAGS = -Werror -Wall -Wextra -g -fsanitize=address -fsanitize=undefined
 
 SRCS = 	push_swap.c\
 		sorting.c\
@@ -17,6 +17,7 @@ SRCS = 	push_swap.c\
 		utils/int_utils.c\
 		utils/errors.c\
 		utils/array.c\
+		utils/frees.c\
 		\
 		libft/libft.a\
 		printf/libftprintf.a\
