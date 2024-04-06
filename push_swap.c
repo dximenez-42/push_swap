@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:46:02 by dximenez          #+#    #+#             */
-/*   Updated: 2024/04/05 17:47:11 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:07:56 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,13 @@ int	main(int argc, char *argv[])
 	a = ft_initialize_stack(argc, nums, &array);
 	b = NULL;
 	if (a == NULL)
-		return (show_error(), free(array), free_check(nums, argc, check), 0);
+		return (show_error(), 0);
 	if (ft_is_sorted(a) && a != NULL)
-		return (free(array), free_stack(&a), free_check(nums, argc, check), 0);
+		return (exit(0), 0);
 	sort_swap_array(&a, array, argc - 1);
 	if (argc - 1 <= 5)
 		small_sort(&a, &b);
 	else
 		big_sort(&a, &b);
-	free_check(nums, argc, check);
-	free(array);
-	free_stack(&a);
+	exit(0);
 }
