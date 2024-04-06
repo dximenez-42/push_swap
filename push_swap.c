@@ -6,7 +6,7 @@
 /*   By: dximenez <dximenez@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 21:46:02 by dximenez          #+#    #+#             */
-/*   Updated: 2024/04/06 15:07:56 by dximenez         ###   ########.fr       */
+/*   Updated: 2024/04/06 19:27:59 by dximenez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ static char	**get_params(int *argc, char *argv[], int *check)
 	char	**numbers;
 
 	argv = argv + 1;
-	if (*argc == 2)
+	if (*argc == 1)
+		exit(1);
+	else if (*argc == 2)
 	{
 		numbers = ft_split(argv[0], ' ');
 		*argc = count_words(argv[0], ' ') + 1;
