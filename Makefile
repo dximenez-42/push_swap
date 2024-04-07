@@ -1,7 +1,7 @@
 NAME = push_swap
 
 CC = gcc
-CFLAGS = -Werror -Wall -Wextra -g #-fsanitize=address -fsanitize=undefined
+CFLAGS = -Werror -Wall -Wextra #-g -fsanitize=address
 
 SRCS = 	push_swap.c\
 		sorting.c\
@@ -25,7 +25,7 @@ SRCS = 	push_swap.c\
 $(NAME) :
 	make all -C libft
 	make all -C printf
-	gcc $(CFLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 
 
 all : $(NAME)
